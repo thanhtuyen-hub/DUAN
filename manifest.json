@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "WEB PHISHING EXTENSION",
+    "version": "1.0",
+    "description": "Add the reading time to Chrome Extension documentation articles",
+    "permissions": ["activeTab"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "./images/16.jpg"
+        }
+    },
+    "icons": {
+        "16": "./images/16.jpg"
+    },
+    "content_scripts": [
+        {
+          "js": ["scripts/content.js"],
+          "matches": ["<all_urls>"]
+        }
+      ]
+  }

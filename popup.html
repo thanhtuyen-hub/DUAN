@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Checker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 26rem;
+            height: auto;
+            margin: 0;
+        }
+
+        .container{
+            background: #e37a7a;
+        }
+    
+        .container .top{
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container .top i{
+            font-size: 3rem;
+            color: #87f6f6;
+        }
+
+        .BodyW{
+            padding: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.2em;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            margin-bottom: 19px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 9px;
+        }
+        button:hover{
+            background-color: #3683d6;
+            transition: .5s linear;
+        }
+        #result {
+            margin-top: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <i class="fa-brands fa-webflow"></i>
+        </div>
+    </div>
+
+    <div class="BodyW">
+        <h1>Phishing Checker</h1>
+        <input type="text" id="urlInput" placeholder="Enter URL...">
+        <button id="checkButton">Check Phishing</button>
+        <div id="result"></div>
+    </div>
+    <script src="brain.js"></script>
+    <script src="popup.js"></script>
+    
+
+</body>
+</html>
