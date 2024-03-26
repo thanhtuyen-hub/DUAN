@@ -11,6 +11,19 @@ df = pd.read_csv('train.csv')
 X = df.drop(['status'], axis=1)
 y = df['status']
 
+#Chuyển đổi dữ liệu với kỹ thuật EncoderLabel
+# Kiểm tra tên của các cột
+names = list(df.columns)
+# Kiểm tra loại của các cột
+types = df.dtypes
+# Kết hợp tất cả dữ liệu với nhau theo một định dạng thống nhất
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+for i in range(len(types)):
+    if types[i]=='object':
+        le.fit_transform(df[names[i]])
+        df[names[i]] = le.transform(df[names[i]])
+
 # Áp dụng SMOTE để cân bằng dữ liệu
 smote = SMOTE(random_state=42)
 X_resampled, y_resampled = smote.fit_resample(X, y)
@@ -44,6 +57,9 @@ if class_counts.min() / class_counts.max() < 0.5:
     print("Dữ liệu không cân bằng")
 else:
     print("Dữ liệu cân bằng")
+
+# In ra thông tin của DataFrame cuối cùng
+print(df_final.info())
 
 # Lưu dữ liệu đã xử lý vào file CSV
 df_final.to_csv('processed_train.csv', index=False)
