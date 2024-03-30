@@ -52,7 +52,7 @@ def analyze_url(urls):
             'http_in_path': urls.str.contains('http').astype(int),
             # 'http' xuất hiện trong đường dẫn của URL không
             'https_token': urls.str.contains('https').astype(int),
-            # 'https' xuất hiện trong URL không
+            # 'https' xuất hiện trong URL không58
             'ratio_digits_url': urls.apply(lambda x: sum(c.isdigit() for c in x) / len(x)),
             # Tỷ lệ số chữ số trong URL, được tính bằng cách chia tổng số chữ số trong URL cho độ dài của URL.
             'ratio_digits_host': urls.apply(lambda x: sum(c.isdigit() for c in x.split('/')[2]) / len(x.split('/')[2]) if len(x.split('/')) >= 3 else 0),
